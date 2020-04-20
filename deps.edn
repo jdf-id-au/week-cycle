@@ -1,0 +1,5 @@
+{:paths ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        org.clojure/clojurescript {:mvn/version "1.10.597"}
+        tick {:git/url "https://github.com/juxt/tick.git"
+              :sha "1e14333e3ce142dd3eebb0cca9449a980a924f1e"}}}
