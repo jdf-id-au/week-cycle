@@ -25,7 +25,7 @@
   ; FIXME handle locale
   (t/format (tick.format/formatter f
                                    #?(:clj Locale/ENGLISH
-                                      :cljs (oget Locale "ENGLISH"))) d))
+                                      :cljs (.-ENGLISH Locale))) d))
 
 (def month-abbr (partial format "MMM"))
 
