@@ -51,7 +51,7 @@
 (defn first-week-one
   "Monday of first cycle-week one of given year. **ZERO BASED** i.e. 'week one' = 0."
   [given-year]
-  (t/+ (first-monday given-year)
+  (t/>> (first-monday given-year)
        (t/new-period (mod (- n (first-week given-year)) n) :weeks)))
 
 (defn cycle-date
@@ -60,9 +60,8 @@
    Day is therefore NOT ISO-8601. Monday is 0.
    Start 'cycle one' on the first 'week one' of the year, ignoring the clinical year."
   ([cycle-year cycle week day]
-   (t/+ (first-week-one cycle-year)
-        (t/new-period (+ (* n cycle) week) :weeks)
-        (t/new-period day :days)))
+   (reduce t/>> (first-week-one cycle-year) [(t/new-period (+ (* n cycle) week) :weeks)
+                                             (t/new-period day :days)]))
   ([cycle-year cycle week] (cycle-date cycle-year cycle week 0))
   ([cycle-year cycle] (cycle-date cycle-year cycle 0 0)))
 
