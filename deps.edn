@@ -1,4 +1,4 @@
 {:paths ["src"]
- :deps {org.clojure/clojure {:mvn/version "1.10.1"}
-        org.clojure/clojurescript {:mvn/version "1.10.597"}
-        tick/tick {:mvn/version "0.4.26-alpha"}}}
+ :deps {org.clojure/clojure {:mvn/version "1.10.3"}
+        org.clojure/clojurescript {:mvn/version "1.10.773"}
+        tick/tick {:mvn/version "0.4.30-alpha"}}}
