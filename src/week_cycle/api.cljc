@@ -1,8 +1,7 @@
 (ns week-cycle.api
   "Calculate n-week cycle where n=4."
-  (:require [tick.alpha.api :as t]
-            #?@(:cljs [["@js-joda/locale_en" :refer [Locale]]]))
-  (:import #?@(:clj [(java.util Locale)]))
+  (:require [tick.core :as t]
+            [tick.locale-en-us])
   (:refer-clojure :exclude [format]))
 
 ; Setup
@@ -23,9 +22,7 @@
 
 (defn format [f d]
   ; FIXME handle locale
-  (t/format (tick.format/formatter f
-                                   #?(:clj Locale/ENGLISH
-                                      :cljs (.-ENGLISH Locale))) d))
+  (t/format (t/formatter f) d))
 
 (def month-abbr (partial format "MMM"))
 
@@ -35,12 +32,12 @@
   "First Monday of given year."
   [given-year]
   (let [year-start (t/new-date given-year 1 1)]
-    (t/+ year-start (t/new-period (mod (- 8 (int-day-of-week year-start)) 7) :days))))
+    (t/>> year-start (t/new-period (mod (- 8 (int-day-of-week year-start)) 7) :days))))
 
 (defn cycle-week
   "Cycle-week of given date. **ZERO BASED**"
   [given-date]
-  (let [monday (t/- given-date (t/new-period (-> given-date int-day-of-week dec) :days))]
+  (let [monday (t/<< given-date (t/new-period (-> given-date int-day-of-week dec) :days))]
     (mod (in-weeks epoch-monday monday) 4)))
 
 (defn first-week

@@ -5,7 +5,7 @@
                 :cljs [[cljs.test :refer-macros [deftest is testing]]
                        [cljs.spec.alpha :as s]
                        [cljs.spec.gen.alpha :as gen]])
-            [tick.alpha.api :as t]
+            [tick.core :as t]
             [week-cycle.api :as w]))
 
 ; TODO https://github.com/bbatsov/clojure-style-guide#testing
