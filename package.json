@@ -14,9 +14,7 @@
   "license": "MIT",
   "homepage": "https://github.com/jdf-id-au/week-cycle",
   "dependencies": {
-    "@js-joda/locale_en": "^2.0.1",
-    "js-joda": "^1.11.0",
-    "js-joda-timezone": "^2.1.1",
-    "shadow-cljs": "^2.8.98"
+      "@js-joda/core": "^6.0.1",
+      
   }
 }

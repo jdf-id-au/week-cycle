@@ -1,7 +1,6 @@
 (ns week-cycle.api
   "Calculate n-week cycle where n=4."
-  (:require [tick.core :as t]
-            [tick.locale-en-us])
+  (:require [tick.core :as t])
   (:refer-clojure :exclude [format]))
 
 ; Setup
